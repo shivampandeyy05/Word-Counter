@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Counter</title>
+    <style>
+        body {
+            padding: 50px 100px;
+            text-align: center;
+            background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            text-shadow: 5px 5px 10px blueviolet;
+        }
+
+        textarea {
+            width: 90%;
+            height: 200px;
+            padding: 12px 20px;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 20px;
+            background-color: #f8f8f8;
+            font-size: 20px;
+            resize: none;
+            box-shadow: 5px 7px 30px blueviolet;
+        }
+
+        span{
+            color: black;
+            font-size: 70px;
+            font-weight: bold;
+            text-shadow: none;
+            
+        }
+        
+        p{
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Words Counter And Characters Counter</h1>
+    <textarea id="textbox" cols="90" rows="15"></textarea>
+    <p><span id="word">0</span> Words
+        <span id="char">0</span> Characters
+    </p>
+
+    <script>
+        var textbox = document.getElementById("textbox");
+
+        textbox.addEventListener('input', function(){
+            var text = this.value;
+            let char = text.length;
+
+            document.getElementById('char').innerHTML = char;
+
+            text = text.trim();
+            let words = text.split(" ");
+            let cleanList = words.filter(function (elm) {
+                return elm != "";
+            });
+            document.getElementById("word").innerHTML = cleanList.length;
+        });
+    </script>
+</body>
+
+</html>
